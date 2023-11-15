@@ -102,7 +102,7 @@ const Fanstasmas = [
     nombre: "fantasma5",
     pocicionInicial: 222,
     pocicionActual: 222,
-    velocidad: 500,
+    velocidad: 200,
   },
 ];
 
@@ -146,8 +146,7 @@ function MoverFantasmas(Fantas) {
       if (MapaVirtual[Fantas.pocicionActual].classList.contains("pacman")) {
           alert("GAME OVER!");
           Fanstasmas.forEach((err) => clearInterval(err.TimerId));
-          location.reload();
-          Sonidos('intro')
+          location.reload();         
       }
     } else {
       DirecccionFantasma = arrayDirecciones[Math.floor(Math.random() * arrayDirecciones.length)];
@@ -223,7 +222,7 @@ function MoverPacman(key) {
 
   MapaVirtual[POCICION_ACTUAL_PACMAN].classList.add("pacman");
   
-  Sonidos('avanzar')
+   Sonidos('avanzar')
   
   // console.log(POCICION_ACTUAL_PACMAN);
 
@@ -245,8 +244,6 @@ function ModificarPuntaje() {
 
 
 //Sonidos
-
-
 function Sonidos (sonido){
 const audioElement = new Audio();
 
@@ -257,19 +254,13 @@ const audioElement = new Audio();
     case 'avanzar':  
           Sonido = './assets/sonidos/munch_1.wav'
       break;
-
     case 'fruta':
          Sonido = './assets/sonidos/eat_fruit.wav'
       break;
-
-    case 'intro':
-        Sonido = './assets/sonidos/game_start.wav'        
-      break;
   }
 
-  // const audioElement = new Audio(Sonido);
-  audioElement.src = Sonido;
-  audioElement.load();
+  
+  audioElement.src = Sonido;  
   audioElement.play();
   
 }
@@ -282,10 +273,6 @@ function QuedanMonedas() {
     location.reload();
   }
 }
-
-document.addEventListener ('DOMContentLoaded', ()=>{
-  Sonidos('intro')
-})
 
 document.addEventListener("keyup", MoverPacman);
 FrutillaMagica();
