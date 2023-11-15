@@ -41,15 +41,17 @@ function CrearMapa() {
 
   for (var x = 0; x < Mapa.length; x++) {
     Bloque = document.createElement("div");
+    
     Tablero.appendChild(Bloque);
 
     //Asignar la clase en Mapa
     switch (Mapa[x]) {
       case 0:
-        Bloque.classList.add("bloque");
+        Bloque.classList.add("bloque");        
         break;
       case 1:
         Bloque.classList.add("camino");
+        
         break;
       case 2:
         Bloque.classList.add("vacio");
@@ -145,6 +147,7 @@ function MoverFantasmas(Fantas) {
           alert("GAME OVER!");
           Fanstasmas.forEach((err) => clearInterval(err.TimerId));
           location.reload();
+          Sonidos('intro')
       }
     } else {
       DirecccionFantasma = arrayDirecciones[Math.floor(Math.random() * arrayDirecciones.length)];
@@ -212,11 +215,17 @@ function MoverPacman(key) {
     MapaVirtual[POCICION_ACTUAL_PACMAN].classList.add("vacio");
   } else if (MapaVirtual[POCICION_ACTUAL_PACMAN].classList.contains("frutilla")) {
     score = score + 50;
+    
+    Sonidos('fruta')
+    
     MapaVirtual[POCICION_ACTUAL_PACMAN].classList.remove("frutilla");
   }
 
   MapaVirtual[POCICION_ACTUAL_PACMAN].classList.add("pacman");
-  console.log(POCICION_ACTUAL_PACMAN);
+  
+  Sonidos('avanzar')
+  
+  // console.log(POCICION_ACTUAL_PACMAN);
 
   QuedanMonedas();
 
@@ -234,14 +243,49 @@ function ModificarPuntaje() {
   document.getElementById("spanPuntaje").innerText = score;
 }
 
+
+//Sonidos
+
+
+function Sonidos (sonido){
+const audioElement = new Audio();
+
+  // audioElement.pause()
+  var Sonido =''; 
+
+  switch (sonido) {    
+    case 'avanzar':  
+          Sonido = './assets/sonidos/munch_1.wav'
+      break;
+
+    case 'fruta':
+         Sonido = './assets/sonidos/eat_fruit.wav'
+      break;
+
+    case 'intro':
+        Sonido = './assets/sonidos/game_start.wav'        
+      break;
+  }
+
+  // const audioElement = new Audio(Sonido);
+  audioElement.src = Sonido;
+  audioElement.load();
+  audioElement.play();
+  
+}
+
 var quedan = true;
 
 function QuedanMonedas() {
   if (TOTAL_MONEDAS <= 0) {
-    alert("GANBASTE EEEEE !");   
+    alert("GANASTE !!!!");   
     location.reload();
   }
 }
+
+document.addEventListener ('DOMContentLoaded', ()=>{
+  Sonidos('intro')
+})
 
 document.addEventListener("keyup", MoverPacman);
 FrutillaMagica();

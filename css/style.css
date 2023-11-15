@@ -13,18 +13,17 @@ main{
     background-color: rgb(0, 0, 0);
 }
 
-#cabecera{
-    
+#cabecera{    
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: chartreuse;    
     width: 630px;
     padding: 10px;
-
 }
+
 #lblpuntaje{
-     display: flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;     
     width: fit-content;
