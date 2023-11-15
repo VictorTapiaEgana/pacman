@@ -78,13 +78,13 @@ const Fanstasmas = [
     nombre: "fantasma1",
     pocicionInicial: 218,
     pocicionActual: 218,
-    velocidad: 100,
+    velocidad: 200,
   },
   {
     nombre: "fantasma2",
     pocicionInicial: 219,
     pocicionActual: 219,
-    velocidad: 300,
+    velocidad: 100,
   },
   {
     nombre: "fantasma3",
