@@ -1,7 +1,7 @@
 
 ## Screenshots
 
-![App Screenshot] (https://github.com/VictorTapiaEgana/pacman/blob/master/capture.gif)
+https://github.com/VictorTapiaEgana/pacman/blob/master/capture.gif
 
 
 ## Uso
