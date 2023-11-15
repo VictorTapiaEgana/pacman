@@ -1,7 +1,9 @@
 
 ## Screenshots
 
-https://github.com/VictorTapiaEgana/pacman/blob/master/capture.gif
+![App Screenshot](https://github.com/VictorTapiaEgana/pacman/blob/master/capture.gif)
+
+![App Screenshot](https://github.com/VictorTapiaEgana/Coding_1942/blob/master/Gif_Animado.gif)
 
 
 ## Uso
